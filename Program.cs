@@ -20,7 +20,13 @@ if (catFact is null)
     return;
 }
 
-await fileService.SaveCatFactAsync(catFact);
+bool isSaved = await fileService.SaveCatFactAsync(catFact);
+
+if (!isSaved)
+{
+    Console.WriteLine("Failed to save the cat fact.");
+    return;
+}
 
 Console.WriteLine($"Fact: {catFact.Fact}");
 Console.WriteLine($"Length: {catFact.Length}");

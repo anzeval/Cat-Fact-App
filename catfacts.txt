@@ -9,3 +9,4 @@ Fact: Edward Lear, author of \The Owl and the Pussycat\"", is said to have had h
 Fact: Abraham Lincoln loved cats. He had four of them while he lived in the White House. | Length: 82
 Fact: Today there are about 100 distinct breeds of the domestic cat. | Length: 62
 Fact: The cat appears to be the only domestic companion animal not mentioned in the Bible. | Length: 84
+Fact: The average lifespan of an outdoor-only (feral and non-feral) is about 3 years; an indoor-only cat can live 16 years and longer. Some cats have been documented to have a longevity of 34 years. | Length: 192

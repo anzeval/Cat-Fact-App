@@ -12,14 +12,26 @@ public class CatFactService
 
     public async Task<CatFact?> GetCatFactAsync()
     {
-        using HttpResponseMessage response = await _httpClient.GetAsync(ApiUrl);
+        try
+        {
+            using HttpResponseMessage response = await _httpClient.GetAsync(ApiUrl);
 
-        if (!response.IsSuccessStatusCode)
+            response.EnsureSuccessStatusCode();
+
+            string content = await response.Content.ReadAsStringAsync();
+            return JsonSerializer.Deserialize<CatFact>(content);
+        }
+        catch (HttpRequestException)
         {
             return null;
         }
-
-        string content = await response.Content.ReadAsStringAsync();
-        return JsonSerializer.Deserialize<CatFact>(content);
+        catch (TaskCanceledException)
+        {
+            return null;
+        }
+        catch (JsonException)
+        {
+            return null;
+        }
     }
 }
