@@ -30,6 +30,9 @@ coverage/
 # Logs
 *.log
 
+# Application-generated data
+catfacts.txt
+
 # Operating-system files
 .DS_Store
 Thumbs.db
