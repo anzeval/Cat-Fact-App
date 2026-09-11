@@ -5,3 +5,7 @@ Fact: Cats have been domesticated for half as long as dogs have been. | Length: 
 Fact: Unlike humans, cats are usually lefties. Studies indicate that their left paw is typically their dominant paw. | Length: 110
 Fact:  A cat only has the ability to move their jaw up and down, not side to side like a human can. | Length: 93
 Fact: The term “puss” is the root of the principal word for “cat” in the Romanian term pisica and the root of secondary words in Lithuanian (puz) and Low German puus. Some scholars suggest that “puss” could be imitative of the hissing sound used to get a cat’s attention. As a slang word for the female pudenda, it could be associated with the connotation of a cat being soft, warm, and fuzzy. | Length: 387
+Fact: Edward Lear, author of \The Owl and the Pussycat\"", is said to have had his new house in San Remo built to exactly the same specification as his previous residence, so that his much-loved tabby, Foss, would immediately feel at home.""" | Length: 236
+Fact: Abraham Lincoln loved cats. He had four of them while he lived in the White House. | Length: 82
+Fact: Today there are about 100 distinct breeds of the domestic cat. | Length: 62
+Fact: The cat appears to be the only domestic companion animal not mentioned in the Bible. | Length: 84

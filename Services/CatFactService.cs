@@ -14,7 +14,10 @@ public class CatFactService
     {
         using HttpResponseMessage response = await _httpClient.GetAsync(ApiUrl);
 
-        response.EnsureSuccessStatusCode();
+        if (!response.IsSuccessStatusCode)
+        {
+            return null;
+        }
 
         string content = await response.Content.ReadAsStringAsync();
         return JsonSerializer.Deserialize<CatFact>(content);

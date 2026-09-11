@@ -1,5 +1,4 @@
-﻿using System.Net.Http;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 var services = new ServiceCollection();
 
@@ -13,28 +12,16 @@ CatFactService catFactService =
 FileService fileService =
     serviceProvider.GetRequiredService<FileService>();
 
-try
-{
-    CatFact? catFact = await catFactService.GetCatFactAsync();
+CatFact? catFact = await catFactService.GetCatFactAsync();
 
-    if (catFact is not null)
-    {
-        await fileService.SaveCatFactAsync(catFact);
+if (catFact is null)
+{
+    Console.WriteLine("Failed to get the cat fact.");
+    return;
+}
 
-        Console.WriteLine("Fact saved successfully.");
-        Console.WriteLine($"Fact: {catFact.Fact}");
-        Console.WriteLine($"Length: {catFact.Length}");
-    }
-    else
-    {
-        Console.WriteLine("Error: failed to deserialize the cat fact.");
-    }
-}
-catch (HttpRequestException error) when (error.StatusCode is not null)
-{
-    Console.WriteLine($"Error: {error.StatusCode}");
-}
-catch (Exception error)
-{
-    Console.WriteLine(error);
-}
+await fileService.SaveCatFactAsync(catFact);
+
+Console.WriteLine($"Fact: {catFact.Fact}");
+Console.WriteLine($"Length: {catFact.Length}");
+Console.WriteLine("Saved to catfacts.txt");
