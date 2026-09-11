@@ -1,0 +1,35 @@
+# Build output
+**/[Bb]in/
+**/[Oo]bj/
+artifacts/
+
+# IDE and editor files
+.vs/
+.idea/
+.vscode/
+*.user
+*.suo
+*.userprefs
+*.sln.docstates
+
+# Tests and code coverage
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+
+# NuGet packages
+*.nupkg
+*.snupkg
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# Operating-system files
+.DS_Store
+Thumbs.db
