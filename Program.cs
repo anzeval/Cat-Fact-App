@@ -1,37 +1,29 @@
 ﻿using System.Net.Http;
-using System.Text.Json;
 
-var client = new HttpClient();
+using var client = new HttpClient();
+var catFactService = new CatFactService(client);
+var fileService = new FileService();
 
 try
 {
-    HttpResponseMessage response = await client.GetAsync("https://catfact.ninja/fact");
+    CatFact? catFact = await catFactService.GetCatFactAsync();
 
-    if (response.IsSuccessStatusCode)
+    if (catFact is not null)
     {
-        string content = await response.Content.ReadAsStringAsync();
-        CatFact? catFact = JsonSerializer.Deserialize<CatFact>(content);
+        await fileService.SaveCatFactAsync(catFact);
 
-        if (catFact is not null)
-        {
-            string fileName = "catfacts.txt";
-            string line = $"Fact: {catFact.Fact} | Length: {catFact.Length}";
-
-            await File.AppendAllTextAsync(fileName, line + Environment.NewLine);
-
-            Console.WriteLine("Fact saved successfully.");
-            Console.WriteLine($"Fact: {catFact.Fact}");
-            Console.WriteLine($"Length: {catFact.Length}");
-        }
-        else
-        {
-            Console.WriteLine("Error: failed to deserialize the cat fact.");
-        }
+        Console.WriteLine("Fact saved successfully.");
+        Console.WriteLine($"Fact: {catFact.Fact}");
+        Console.WriteLine($"Length: {catFact.Length}");
     }
     else
     {
-        Console.WriteLine($"Error: {response.StatusCode}");
+        Console.WriteLine("Error: failed to deserialize the cat fact.");
     }
+}
+catch (HttpRequestException error) when (error.StatusCode is not null)
+{
+    Console.WriteLine($"Error: {error.StatusCode}");
 }
 catch (Exception error)
 {

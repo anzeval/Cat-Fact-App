@@ -2,3 +2,4 @@ Fact: Female cats are polyestrous | Length: 28
 Fact: A cat lover is called an Ailurophile (Greek: cat+lover). | Length: 56
 Fact: The first cartoon cat was Felix the Cat in 1919. In 1940, Tom and Jerry starred in the first theatrical cartoon “Puss Gets the Boot.” In 1981 Andrew Lloyd Weber created the musical Cats, based on T.S. Eliot’s Old Possum’s Book of Practical Cats. | Length: 245
 Fact: Cats have been domesticated for half as long as dogs have been. | Length: 63
+Fact: Unlike humans, cats are usually lefties. Studies indicate that their left paw is typically their dominant paw. | Length: 110
