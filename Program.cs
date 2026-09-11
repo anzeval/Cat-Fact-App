@@ -1,8 +1,17 @@
 ﻿using System.Net.Http;
+using Microsoft.Extensions.DependencyInjection;
 
-using var client = new HttpClient();
-var catFactService = new CatFactService(client);
-var fileService = new FileService();
+var services = new ServiceCollection();
+
+services.AddHttpClient<CatFactService>();
+services.AddTransient<FileService>();
+
+using ServiceProvider serviceProvider = services.BuildServiceProvider();
+
+CatFactService catFactService =
+    serviceProvider.GetRequiredService<CatFactService>();
+FileService fileService =
+    serviceProvider.GetRequiredService<FileService>();
 
 try
 {
